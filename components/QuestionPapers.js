@@ -14,7 +14,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
       const electiveIIISubjects = allSubjects.filter(subject => subject.type === 'Elective III');
       const electiveIVSubjects = allSubjects.filter(subject => subject.type === 'Elective IV');
       return (
-        <div className="min-h-screen bg-[#f0f0f0] dark:bg-gray-900" data-name="question-papers-subjects" data-file="components/QuestionPapers.js">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900" data-name="question-papers-subjects" data-file="components/QuestionPapers.js">
           <div className="max-w-6xl mx-auto p-6">
             <button
               onClick={onBack}
@@ -188,7 +188,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
     }
     if (selectedSemester === 'Semester III' || selectedSemester === 'Semester IV') {
       return (
-        <div className="min-h-screen bg-[#f0f0f0] dark:bg-gray-900 flex items-center justify-center" data-name="question-papers-coming-soon" data-file="components/QuestionPapers.js">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center" data-name="question-papers-coming-soon" data-file="components/QuestionPapers.js">
           <div className="bg-white dark:bg-gray-800 rounded-xl p-8 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] flex flex-col items-center max-w-md mx-auto">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full border-3 border-purple-600 flex items-center justify-center mb-4">
               <span className="icon-hourglass text-3xl text-white"></span>
@@ -200,7 +200,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
       );
     }
     return (
-      <div className="min-h-screen bg-[#f0f0f0] dark:bg-gray-900" data-name="question-papers" data-file="components/QuestionPapers.js">
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900" data-name="question-papers" data-file="components/QuestionPapers.js">
         <div className="max-w-6xl mx-auto p-6">
           {/* Header */}
           <div className="mb-8">

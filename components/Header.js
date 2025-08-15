@@ -6,6 +6,7 @@ function Header({
   onQuestionPapersClick,
   showAdvancedFilters,
   onToggleAdvancedFilters,
+  activeFilterCount,
 }) {
   const { isDarkMode, toggleDarkMode } = useTheme();
   try {
@@ -16,7 +17,7 @@ function Header({
         data-file="components/Header.js"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
                 <div className="icon-graduation-cap text-2xl text-white"></div>
@@ -33,7 +34,7 @@ function Header({
 
             <div className="w-full flex flex-nowrap items-center justify-end gap-3 px-2 sm:px-4">
               {/* Responsive Search Box */}
-              <div className="relative flex-grow max-w-[350px] sm:max-w-[450px] lg:max-w-[400px]">
+              <div className="relative flex-grow w-full sm:w-auto">
                 <input
                   type="text"
                   placeholder="Search all courses..."
@@ -47,14 +48,19 @@ function Header({
               {/* Advanced Search Toggle */}
               <button
                 onClick={onToggleAdvancedFilters}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2.5 text-sm font-bold rounded-lg border-2 transition-all whitespace-nowrap ${
-                  showAdvancedFilters
+                className={`flex-shrink-0 flex items-center gap-2 px-3 py-2.5 text-sm font-bold rounded-lg border-2 transition-all whitespace-nowrap ${
+                  showAdvancedFilters || activeFilterCount > 0
                     ? 'bg-blue-500 text-white border-blue-700 dark:bg-blue-600 dark:border-blue-500 shadow-[2px_2px_0px_rgba(0,0,0,0.9)]'
                     : 'bg-white dark:bg-gray-700 text-black dark:text-white border-black dark:border-gray-600 hover:shadow-[3px_3px_0px_rgba(0,0,0,0.9)] shadow-[2px_2px_0px_rgba(0,0,0,0.9)]'
                 }`}
               >
                 <div className="icon-filter text-sm"></div>
-                Filters
+                <span>Filters</span>
+                {activeFilterCount > 0 && (
+                  <span className="bg-white dark:bg-gray-800 text-blue-500 dark:text-blue-400 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-blue-500 dark:border-blue-400">
+                    {activeFilterCount}
+                  </span>
+                )}
               </button>
 
               {/* Dark Mode Toggle */}
@@ -82,6 +88,7 @@ function Header({
             </div>
           </div>
 
+          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {["Semester I", "Semester II", "Semester III", "Semester IV"].map(
               (sem, index) => (

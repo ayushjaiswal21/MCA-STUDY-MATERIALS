@@ -52,6 +52,8 @@ function App() {
     });
     
     const { isDarkMode } = useTheme();
+
+    const activeFilterCount = Object.values(filters).filter(Boolean).length;
     
     const allCourses = curriculumData.getAllCourses();
     
@@ -200,6 +202,7 @@ function App() {
           onQuestionPapersClick={handleQuestionPapersClick}
           showAdvancedFilters={showAdvancedFilters}
           onToggleAdvancedFilters={handleToggleAdvancedFilters}
+          activeFilterCount={activeFilterCount}
         />
         
         <main className="max-w-6xl mx-auto p-6">
@@ -377,6 +380,7 @@ function App() {
             </div>
           </div>
         </main>
+        <BackToTop />
       </div>
     );
   } catch (error) {

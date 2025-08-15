@@ -16,7 +16,7 @@ function CourseDetailPage({ course, onBack }) {
         <div className="max-w-4xl mx-auto p-6">
           <button
             onClick={onBack}
-            className="btn-secondary mb-6 flex items-center gap-2"
+            className="py-3 px-6 bg-white text-black font-black text-sm rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200 mb-6 flex items-center gap-2"
           >
             <div className="icon-arrow-left text-sm"></div>
             Back to Courses
